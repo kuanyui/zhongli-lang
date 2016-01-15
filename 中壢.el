@@ -1,22 +1,16 @@
 ;;; 中壢.el --- 用中文寫壢斯波！                     -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016  kuanyui
+;; Copyleft (?) 2016  ono hiroko
 
-;; Author: kuanyui <azazabc123@gmail.com>
+;; Author: ono hiroko <azazabc123@gmail.com>
 ;; Keywords: lisp
 
 ;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
+;; it under the terms of WTFPL 2.0
 
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; This program is distributed in the hope that it will not be useful,
+;; so WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ;;; Commentary:
 
@@ -24,6 +18,7 @@
 
 ;;; Code:
 
+(require 'cl)
 
 (mapc (lambda (x)
         (defalias (cdr x) (car x)))
@@ -39,17 +34,22 @@
         (quote       . 括號)
         (quote       . 引言)
         (quote       . 不求)
-        (quote       . 不要求)
+        (quote       . 不求值)
         (quote       . 不求人)
         (quote       . 不要求值)
         (quote       . 不要求我)
+        (quote       . 不要求我值)
         (quote       . 不要求值我)
-        (quote       . 拜託不要來求我)
+        (quote       . 拜託不要求我值)
+        (quote       . 拜託不要求我值)
+        (quote       . 拜託不要來求我值)
+        (quote       . 拜託千萬不要來求我值)
         (function    . 把我看成函數然後不要求我)
         (push        . 塞進去)
         (pop         . 擠出來)
         (remove      . 移除)
         (cond        . 情況)
+        (cond        . 條件)
         (list        . 列表)
         (list        . 清單)
         (list        . 購物清單)
@@ -61,6 +61,7 @@
         (arrayp      . 陣列嗎？)
         (if          . 如)
         (if          . 如果)
+        (if          . 詢問)
         (when        . 當)
         (while       . 正當)
         (not         . 不)
@@ -83,7 +84,7 @@
         (defun       . 函數)
         (defmacro    . 定義巨集)
         (defmacro    . 巨集)
-        (interactive . 互動地)
+        (interactive . 互動地) ; 無效，因為 `interactive' 是special form
         (interactive . 互動式)
         (provide     . 供)
         (provide     . 提供)
@@ -93,9 +94,6 @@
         (nth         . 第n個)
         (null        . 這是空的)
         (null        . 是空的)
-        (nil         . 空)
-        (nil         . 空列表)
-        (nil         . 空清單)
         (length      . 長度)
         (length      . 這玩意的長度)
         (progn       . 跑)
@@ -114,6 +112,7 @@
         (ceiling  . 往上無條件進位)
         (round    . 四捨五入)
         (random   . 隨機吐一個比這小的整數)
+        (string-to-number . 字串轉成數字)
         ;; 字串相關
         (format             . 格式化)
         (concat             . 串接)
@@ -133,16 +132,18 @@
         (message              . 靠杯一下)
         (error                . 錯誤)
         (error                . 罵髒話)
-        (yes-or-no-p          . 請問是否要)
-        (yes-or-no-p          . 閣下是否要)
-        (yes-or-no-p          . 敢問閣下是否要)
-        (yes-or-no-p          . 敢問尊貴的閣下是否要)
-        (yes-or-no-p          . 敢問尊貴睿智的閣下是否要)
-        (yes-or-no-p          . 微臣敢問皇上是否要)
+        (yes-or-no-p          . 請問是否)
+        (yes-or-no-p          . 閣下是否)
+        (yes-or-no-p          . 敢問閣下是否)
+        (yes-or-no-p          . 敢問尊貴的閣下是否)
+        (yes-or-no-p          . 敢問尊貴睿智的閣下是否)
+        (yes-or-no-p          . 微臣敢問皇上是否)
         (y-or-n-p             . 要不)
         (y-or-n-p             . 是否)
         (read-from-minibuffer . 從迷你緩衝區讀入)
         (read-from-minibuffer . 問使用者)
+        (shell-command        . 呼叫殼的指令)
+        (sit-for              . 發呆幾秒)
         ;; 設定
         (global-set-key . 全域設定按鍵)
         (kbd . 按鍵)
@@ -150,6 +151,13 @@
       )
 
 
+(setq 是 t)
+(setq 好 t)
+(setq 否 nil)
+(setq 不要 nil)
+(setq 空 nil)
+(setq 空列表 nil)
+(setq 空清單 nil)
 
 
 (provide '中壢)
