@@ -2,6 +2,7 @@
 「中壢.el」可以讓你用中文寫出語意通暢流利到沒人看得懂也沒人會除錯的壢斯波程式，真是太棒了，以後連註解都不用寫了。
 
 [[file:中壢.jpg]]
+(圖片為 [[https://commons.wikimedia.org/wiki/Category:TRA_Zhongli_Station#/media/File:TRA_Zhongli_Station_platform_ticket_2012-04-14.jpg][Solomon203]] 所攝，出自 Wikipedia)
 
 * 安裝
 把 =中壢.el= 下載下來扔到任意的 =load-path= 後， =(require '中壢)= 。
