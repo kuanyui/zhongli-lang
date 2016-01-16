@@ -1,4 +1,8 @@
 * 中壢語 - 中文壢斯波（Lisp）
+#+BEGIN_QUOTE
+For non-Chinese user, this useless package is to let people write Lisp in Chinese on a semantic way.
+#+END_QUOTE
+
 =中壢= ，又稱中壢語，可以讓你用中文寫出語意通暢流利到沒人看得懂也沒人會除錯的伊妹苦蘇（Emacs）壢斯波程式，真是太棒了，以後連註解都不用寫了。
 
 [[file:中壢.jpg]]
