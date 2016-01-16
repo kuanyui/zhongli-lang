@@ -59,7 +59,13 @@
         (equal       . 長相相等)
         (equal       . 相等)
         (array       . 陣列)
-        (arrayp      . 陣列嗎？)
+        ;; 資料型態
+        (numberp     . 這是數字嗎？)
+        (integerp    . 這是整數嗎？)
+        (stringp     . 這是字串嗎？)
+        (arrayp      . 這是陣列嗎？)
+        (listp       . 這是列表嗎？)
+        (listp       . 這是購物清單嗎？)
         (if          . 如)
         (if          . 如果)
         (if          . 詢問)
@@ -82,16 +88,25 @@
         (let*        . 設區域變數)
         (let*        . 區域變數)
         (setq        . 設)
+        (setq        . 設定)
         (setq        . 設變數)
+        (setq        . 設定變數)
         (setq        . 賦值)
         (setq        . 賦予)
         (setq        . 賦予變數)
         (defun       . 定義函數)
+        (defun       . 定義樂趣)
         (defun       . 函數)
         (defmacro    . 巨集)
-        (defmacro    . 定義巨集)
         (defmacro    . 馬括)
+        (defmacro    . 馬擴)
+        (defmacro    . 碼括)
+        (defmacro    . 碼擴)
+        (defmacro    . 定義巨集)
         (defmacro    . 定義馬括)
+        (defmacro    . 定義馬擴)
+        (defmacro    . 定義碼括)
+        (defmacro    . 定義碼擴)
         (funcall     . 呼叫函數)
         (funcall     . 摳函數)
         (funcall     . 樂趣摳)
@@ -100,10 +115,12 @@
         (funcall     . 放摳)
         (macroexpand . 展開巨集)
         (macroexpand . 展開馬括)
+        (macroexpand . 展開馬擴)
+        (macroexpand . 展開碼括)
+        (macroexpand . 展開碼擴)
         (macroexpand . 展開括約肌)
         (macroexpand . 撐開括約肌)
-        (interactive . 互動地) ; 無效，因為 `interactive' 是special form
-        (interactive . 互動式)
+        (macroexpand . 鬆開括約肌)
         (provide     . 供)
         (provide     . 提供)
         (require     . 需)
@@ -131,7 +148,7 @@
         (round    . 四捨五入)
         (random   . 隨機吐一個比這小的整數)
         (string-to-number . 字串轉成數字)
-        ;; 字串相關
+        ;; 字串相關.
         (format             . 格式化)
         (concat             . 串接)
         (re-search-forward  . 正規往前搜尋)
@@ -140,10 +157,10 @@
         (match-string       . 取得符合的字串)
         (insert             . 插入)
         (insert             . 插入字串)
-        ;; 緩衝區相關
+        ;; 緩衝區相關.
         (point     . 游標位置)
         (goto-char . 跳到游標位置)
-        ;; 有的沒的
+        ;; 有的沒的.
         (message              . 說)
         (message              . 說話)
         (message              . 訊息)
@@ -178,6 +195,12 @@
 (setq 空列表 nil)
 (setq 空清單 nil)
 
+(defmacro 互動地 (&rest args)
+  "說明文件同 `interactive'"
+  `(interactive ,@args))
 
+(defalias '互動式 '互動地)
+
+(interactive "naaa")
 (provide '中壢)
 ;;; 中壢.el ends here
