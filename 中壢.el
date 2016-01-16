@@ -95,6 +95,8 @@
         (funcall     . 呼叫函數)
         (funcall     . 摳函數)
         (funcall     . 樂趣摳)
+        (funcall     . 樂樂摳)
+        (funcall     . 爽爽摳)
         (macroexpand . 展開巨集)
         (macroexpand . 展開馬括)
         (macroexpand . 展開括約肌)
